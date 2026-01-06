@@ -22,7 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'opinion_app',
+    
 ]
+STATIC_URL = '/static/'
 
 
 MIDDLEWARE = [
