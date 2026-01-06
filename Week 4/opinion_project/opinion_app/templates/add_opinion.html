@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Opinion</title>
+</head>
+<body>
+
+<h2>Submit Your Opinion</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Phone:</label><br>
+    <input type="text" name="phone" required><br><br>
+
+    <label>Election Area:</label><br>
+    <textarea name="election_area" rows="4" cols="40" required></textarea><br><br>
+
+    <label>Support 2026 Election:</label><br>
+    <input type="radio" name="party" value="BNP" required> BNP <br>
+    <input type="radio" name="party" value="Jamaat"> Jamaat <br>
+    <input type="radio" name="party" value="Swatantra"> Independent <br>
+    <input type="radio" name="party" value="No Comment"> No Comment <br><br>
+
+    <button type="submit">Submit Opinion</button>
+</form>
+
+<br>
+<a href="{% url 'home' %}">Home</a>
+
+</body>
+</html>
