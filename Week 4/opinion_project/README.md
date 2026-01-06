@@ -2,10 +2,20 @@
 
 A Django-based web application that allows citizens to share and view public opinions for the **13th National Parliamentary Election (2026)** in Bangladesh. The project focuses on clean UI, constituency-wise opinions, and simple data management using SQLite.
 
-🎥 **Project Overview Video**  
-👉 https://jumpshare.com/share/xxQLnpp1p4b9YIyaIiJv
-or
-👉 https://streamable.com/lne4dc
+<p>
+  🎥 <strong>Project Overview Video</strong><br>
+    <a href="https://jumpshare.com/share/xxQLnpp1p4b9YIyaIiJv" target="_blank">
+    https://jumpshare.com/share/xxQLnpp1p4b9YIyaIiJv
+    </a>
+    <br>
+    or
+    <br>
+     <a href="https://streamable.com/lne4dc" target="_blank">
+    https://streamable.com/lne4dc
+    </a>
+</p>
+
+<hr>
 
 ---
 
