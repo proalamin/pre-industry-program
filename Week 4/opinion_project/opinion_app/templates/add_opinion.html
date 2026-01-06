@@ -1,35 +1,360 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Opinion</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <div class="container form-container">
+        <h2>Submit Your Opinion</h2>
+        <p class="subtitle">(Your data will be kept private)</p>
 
-<h2>Submit Your Opinion</h2>
+        <form method="post">
+            {% csrf_token %}
 
-<form method="post">
-    {% csrf_token %}
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required>
+            </div>
 
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="01XXXXXXXXX" required>
+            </div>
 
-    <label>Phone:</label><br>
-    <input type="text" name="phone" required><br><br>
+            <div class="form-group">
+                <label>Election Area</label>
+                <input type="text" name="election_area" list="election_areas" placeholder="Type election area name" required>
+                <datalist id="election_areas">
+                    <option value="Panchagarh-1">
+                    <option value="Panchagarh-2">
+                    <option value="Thakurgaon-1">
+                    <option value="Thakurgaon-2">
+                    <option value="Thakurgaon-3">
+                    <option value="Dinajpur-1">
+                    <option value="Dinajpur-2">
+                    <option value="Dinajpur-3">
+                    <option value="Dinajpur-4">
+                    <option value="Dinajpur-5">
+                    <option value="Dinajpur-6">
+                    <option value="Nilphamari-1">
+                    <option value="Nilphamari-2">
+                    <option value="Nilphamari-3">
+                    <option value="Nilphamari-4">
+                    <option value="Lalmonirhat-1">
+                    <option value="Lalmonirhat-2">
+                    <option value="Lalmonirhat-3">
+                    <option value="Rangpur-1">
+                    <option value="Rangpur-2">
+                    <option value="Rangpur-3">
+                    <option value="Rangpur-4">
+                    <option value="Rangpur-5">
+                    <option value="Rangpur-6">
+                    <option value="Kurigram-1">
+                    <option value="Kurigram-2">
+                    <option value="Kurigram-3">
+                    <option value="Kurigram-4">
+                    <option value="Gaibandha-1">
+                    <option value="Gaibandha-2">
+                    <option value="Gaibandha-3">
+                    <option value="Gaibandha-4">
+                    <option value="Gaibandha-5">
+                    <option value="Joypurhat-1">
+                    <option value="Joypurhat-2">
+                    <option value="Bogura-1">
+                    <option value="Bogura-2">
+                    <option value="Bogura-3">
+                    <option value="Bogura-4">
+                    <option value="Bogura-5">
+                    <option value="Bogura-6">
+                    <option value="Bogura-7">
+                    <option value="Chapai Nawabganj-1">
+                    <option value="Chapai Nawabganj-2">
+                    <option value="Chapai Nawabganj-3">
+                    <option value="Naogaon-1">
+                    <option value="Naogaon-2">
+                    <option value="Naogaon-3">
+                    <option value="Naogaon-4">
+                    <option value="Naogaon-5">
+                    <option value="Naogaon-6">
+                    <option value="Rajshahi-1">
+                    <option value="Rajshahi-2">
+                    <option value="Rajshahi-3">
+                    <option value="Rajshahi-4">
+                    <option value="Rajshahi-5">
+                    <option value="Rajshahi-6">
+                    <option value="Natore-1">
+                    <option value="Natore-2">
+                    <option value="Natore-3">
+                    <option value="Natore-4">
+                    <option value="Pabna-1">
+                    <option value="Pabna-2">
+                    <option value="Pabna-3">
+                    <option value="Pabna-4">
+                    <option value="Pabna-5">
+                    <option value="Sirajganj-1">
+                    <option value="Sirajganj-2">
+                    <option value="Sirajganj-3">
+                    <option value="Sirajganj-4">
+                    <option value="Sirajganj-5">
+                    <option value="Sirajganj-6">
+                    <option value="Jashore-1">
+                    <option value="Jashore-2">
+                    <option value="Jashore-3">
+                    <option value="Jashore-4">
+                    <option value="Jashore-5">
+                    <option value="Jashore-6">
+                    <option value="Khulna-1">
+                    <option value="Khulna-2">
+                    <option value="Khulna-3">
+                    <option value="Khulna-4">
+                    <option value="Khulna-5">
+                    <option value="Khulna-6">
+                    <option value="Satkhira-1">
+                    <option value="Satkhira-2">
+                    <option value="Satkhira-3">
+                    <option value="Satkhira-4">
+                    <option value="Bagerhat-1">
+                    <option value="Bagerhat-2">
+                    <option value="Bagerhat-3">
+                    <option value="Jhenaidah-1">
+                    <option value="Jhenaidah-2">
+                    <option value="Jhenaidah-3">
+                    <option value="Jhenaidah-4">
+                    <option value="Kushtia-1">
+                    <option value="Kushtia-2">
+                    <option value="Kushtia-3">
+                    <option value="Kushtia-4">
+                    <option value="Magura-1">
+                    <option value="Magura-2">
+                    <option value="Meherpur-1">
+                    <option value="Meherpur-2">
+                    <option value="Narail-1">
+                    <option value="Narail-2">
+                    <option value="Chuadanga-1">
+                    <option value="Chuadanga-2">
+                    <option value="Barishal-1">
+                    <option value="Barishal-2">
+                    <option value="Barishal-3">
+                    <option value="Barishal-4">
+                    <option value="Barishal-5">
+                    <option value="Barishal-6">
+                    <option value="Patuakhali-1">
+                    <option value="Patuakhali-2">
+                    <option value="Patuakhali-3">
+                    <option value="Patuakhali-4">
+                    <option value="Bhola-1">
+                    <option value="Bhola-2">
+                    <option value="Bhola-3">
+                    <option value="Bhola-4">
+                    <option value="Pirojpur-1">
+                    <option value="Pirojpur-2">
+                    <option value="Pirojpur-3">
+                    <option value="Barguna-1">
+                    <option value="Barguna-2">
+                    <option value="Jhalokati-1">
+                    <option value="Jhalokati-2">
+                    <option value="Mymensingh-1">
+                    <option value="Mymensingh-2">
+                    <option value="Mymensingh-3">
+                    <option value="Mymensingh-4">
+                    <option value="Mymensingh-5">
+                    <option value="Mymensingh-6">
+                    <option value="Mymensingh-7">
+                    <option value="Mymensingh-8">
+                    <option value="Mymensingh-9">
+                    <option value="Mymensingh-10">
+                    <option value="Mymensingh-11">
+                    <option value="Jamalpur-1">
+                    <option value="Jamalpur-2">
+                    <option value="Jamalpur-3">
+                    <option value="Jamalpur-4">
+                    <option value="Jamalpur-5">
+                    <option value="Netrokona-1">
+                    <option value="Netrokona-2">
+                    <option value="Netrokona-3">
+                    <option value="Netrokona-4">
+                    <option value="Netrokona-5">
+                    <option value="Sherpur-1">
+                    <option value="Sherpur-2">
+                    <option value="Sherpur-3">
+                    <option value="Dhaka-1">
+                    <option value="Dhaka-2">
+                    <option value="Dhaka-3">
+                    <option value="Dhaka-4">
+                    <option value="Dhaka-5">
+                    <option value="Dhaka-6">
+                    <option value="Dhaka-7">
+                    <option value="Dhaka-8">
+                    <option value="Dhaka-9">
+                    <option value="Dhaka-10">
+                    <option value="Dhaka-11">
+                    <option value="Dhaka-12">
+                    <option value="Dhaka-13">
+                    <option value="Dhaka-14">
+                    <option value="Dhaka-15">
+                    <option value="Dhaka-16">
+                    <option value="Dhaka-17">
+                    <option value="Dhaka-18">
+                    <option value="Dhaka-19">
+                    <option value="Dhaka-20">
+                    <option value="Gazipur-1">
+                    <option value="Gazipur-2">
+                    <option value="Gazipur-3">
+                    <option value="Gazipur-4">
+                    <option value="Gazipur-5">
+                    <option value="Gazipur-6">
+                    <option value="Narsingdi-1">
+                    <option value="Narsingdi-2">
+                    <option value="Narsingdi-3">
+                    <option value="Narsingdi-4">
+                    <option value="Narsingdi-5">
+                    <option value="Narayanganj-1">
+                    <option value="Narayanganj-2">
+                    <option value="Narayanganj-3">
+                    <option value="Narayanganj-4">
+                    <option value="Narayanganj-5">
+                    <option value="Kishoreganj-1">
+                    <option value="Kishoreganj-2">
+                    <option value="Kishoreganj-3">
+                    <option value="Kishoreganj-4">
+                    <option value="Kishoreganj-5">
+                    <option value="Kishoreganj-6">
+                    <option value="Tangail-1">
+                    <option value="Tangail-2">
+                    <option value="Tangail-3">
+                    <option value="Tangail-4">
+                    <option value="Tangail-5">
+                    <option value="Tangail-6">
+                    <option value="Tangail-7">
+                    <option value="Tangail-8">
+                    <option value="Faridpur-1">
+                    <option value="Faridpur-2">
+                    <option value="Faridpur-3">
+                    <option value="Faridpur-4">
+                    <option value="Gopalganj-1">
+                    <option value="Gopalganj-2">
+                    <option value="Gopalganj-3">
+                    <option value="Madaripur-1">
+                    <option value="Madaripur-2">
+                    <option value="Madaripur-3">
+                    <option value="Shariatpur-1">
+                    <option value="Shariatpur-2">
+                    <option value="Shariatpur-3">
+                    <option value="Manikganj-1">
+                    <option value="Manikganj-2">
+                    <option value="Manikganj-3">
+                    <option value="Munshiganj-1">
+                    <option value="Munshiganj-2">
+                    <option value="Munshiganj-3">
+                    <option value="Rajbari-1">
+                    <option value="Rajbari-2">
+                    <option value="Sylhet-1">
+                    <option value="Sylhet-2">
+                    <option value="Sylhet-3">
+                    <option value="Sylhet-4">
+                    <option value="Sylhet-5">
+                    <option value="Sylhet-6">
+                    <option value="Sunamganj-1">
+                    <option value="Sunamganj-2">
+                    <option value="Sunamganj-3">
+                    <option value="Sunamganj-4">
+                    <option value="Sunamganj-5">
+                    <option value="Moulivibazar-1">
+                    <option value="Moulivibazar-2">
+                    <option value="Moulivibazar-3">
+                    <option value="Moulivibazar-4">
+                    <option value="Habiganj-1">
+                    <option value="Habiganj-2">
+                    <option value="Habiganj-3">
+                    <option value="Habiganj-4">
+                    <option value="Chattogram-1">
+                    <option value="Chattogram-2">
+                    <option value="Chattogram-3">
+                    <option value="Chattogram-4">
+                    <option value="Chattogram-5">
+                    <option value="Chattogram-6">
+                    <option value="Chattogram-7">
+                    <option value="Chattogram-8">
+                    <option value="Chattogram-9">
+                    <option value="Chattogram-10">
+                    <option value="Chattogram-11">
+                    <option value="Chattogram-12">
+                    <option value="Chattogram-13">
+                    <option value="Chattogram-14">
+                    <option value="Chattogram-15">
+                    <option value="Chattogram-16">
+                    <option value="Cumilla-1">
+                    <option value="Cumilla-2">
+                    <option value="Cumilla-3">
+                    <option value="Cumilla-4">
+                    <option value="Cumilla-5">
+                    <option value="Cumilla-6">
+                    <option value="Cumilla-7">
+                    <option value="Cumilla-8">
+                    <option value="Cumilla-9">
+                    <option value="Cumilla-10">
+                    <option value="Cumilla-11">
+                    <option value="Brahmanbaria-1">
+                    <option value="Brahmanbaria-2">
+                    <option value="Brahmanbaria-3">
+                    <option value="Brahmanbaria-4">
+                    <option value="Brahmanbaria-5">
+                    <option value="Brahmanbaria-6">
+                    <option value="Noakhali-1">
+                    <option value="Noakhali-2">
+                    <option value="Noakhali-3">
+                    <option value="Noakhali-4">
+                    <option value="Noakhali-5">
+                    <option value="Noakhali-6">
+                    <option value="Chandpur-1">
+                    <option value="Chandpur-2">
+                    <option value="Chandpur-3">
+                    <option value="Chandpur-4">
+                    <option value="Chandpur-5">
+                    <option value="Lakshmipur-1">
+                    <option value="Lakshmipur-2">
+                    <option value="Lakshmipur-3">
+                    <option value="Lakshmipur-4">
+                    <option value="Cox's Bazar-1">
+                    <option value="Cox's Bazar-2">
+                    <option value="Cox's Bazar-3">
+                    <option value="Cox's Bazar-4">
+                    <option value="Feni-1">
+                    <option value="Feni-2">
+                    <option value="Feni-3">
+                    <option value="Khagrachari">
+                    <option value="Rangamati">
+                    <option value="Bandarban">
+                </datalist>
+            </div>
 
-    <label>Election Area:</label><br>
-    <textarea name="election_area" rows="4" cols="40" required></textarea><br><br>
+            <div class="form-group">
+                <label>Support 2026 Election</label>
+                <div class="radio-box">
+                    <label>
+                        <input type="radio" name="party" value="BNP" required> BNP
+                    </label>
+                    <label>
+                        <input type="radio" name="party" value="Jamaat"> Jamaat
+                    </label>
+                    <label>
+                        <input type="radio" name="party" value="Independent"> Independent
+                    </label>
+                    <label>
+                        <input type="radio" name="party" value="No Comment"> No Comment
+                    </label>
+                </div>
+            </div>
 
-    <label>Support 2026 Election:</label><br>
-    <input type="radio" name="party" value="BNP" required> BNP <br>
-    <input type="radio" name="party" value="Jamaat"> Jamaat <br>
-    <input type="radio" name="party" value="Swatantra"> Independent <br>
-    <input type="radio" name="party" value="No Comment"> No Comment <br><br>
-
-    <button type="submit">Submit Opinion</button>
-</form>
-
-<br>
-<a href="{% url 'home' %}">Home</a>
-
+            <div class="button-group">
+                <button type="submit" class="primary-btn">Submit Opinion</button>
+                <a href="{% url 'home' %}" class="secondary-btn">Home</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

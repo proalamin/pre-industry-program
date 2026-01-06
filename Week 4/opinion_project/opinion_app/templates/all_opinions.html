@@ -1,3 +1,44 @@
-<h2>All Opinions</h2>
-<p>All opinions will be listed here</p>
-<a href="{% url 'home' %}">Home</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Opinions</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>All Opinions</h2>
+        
+        <div class="page-actions">
+            <a href="{% url 'home' %}">
+                <button class="secondary-btn">Home</button>
+            </a>
+            <a href="{% url 'add_opinion' %}">
+                <button class="primary-btn">Add Opinion</button>
+            </a>
+        </div>
+
+        <p class="hero-subtext">
+            Browse all public opinions submitted across constituencies
+        </p>
+
+        <div class="opinions-grid">
+            {% for op in opinions %}
+            <div class="opinion-card">
+                <div class="opinion-name">{{ op.name }}</div>
+                <div class="opinion-area">
+                    <strong>Election Area:</strong> {{ op.election_area }}
+                </div>
+                <div class="opinion-party party-{{ op.party|lower|slugify }}">
+                    <strong>Support Party:</strong> {{ op.party }}
+                </div>
+            </div>
+            {% empty %}
+            <p>No opinions available</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

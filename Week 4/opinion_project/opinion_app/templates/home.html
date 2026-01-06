@@ -1,26 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opinion Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <div class="container">
+        <h1>Public Opinion Portal</h1>
+        <h2>13th National Parliamentary Election, 2026</h2>
+        <p class="hero-subtext">
+            Share your opinion anonymously • View public sentiment by constituency • Stay informed
+        </p>
 
-<h1>Public Opinion Portal</h1>
+        <div class="nav">
+            <a href="{% url 'add_opinion' %}">
+                <button>Add My Opinion</button>
+            </a>
+            <a href="{% url 'all_opinions' %}">
+                <button>Show All Opinions</button>
+            </a>
+        </div>
 
-<div style="text-align:center; margin-top:40px;">
-    <a href="{% url 'add_opinion' %}">
-        <button>Add My Opinion</button>
-    </a>
+        <h3>Latest Opinions</h3>
 
-    <a href="{% url 'all_opinions' %}">
-        <button>Show All Opinions</button>
-    </a>
-</div>
-
-<hr>
-
-<h3>Latest Opinions</h3>
-<p>(Will show opinions here later)</p>
-
+        <div class="opinions-grid">
+            {% for op in opinions|slice:":6" %}
+            <div class="opinion-card">
+                <div class="opinion-name">{{ op.name }}</div>
+                <div class="opinion-area">
+                    <strong>Election Area:</strong> {{ op.election_area }}
+                </div>
+                <div class="opinion-party {% if op.party == 'BNP' %}party-bnp{% elif op.party == 'Jamaat' %}party-jamaat{% elif op.party == 'Independent' %}party-independent{% else %}party-no-comment{% endif %}">
+                    <strong>Support Party:</strong> {{ op.party }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
